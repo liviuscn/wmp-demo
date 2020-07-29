@@ -1,36 +1,27 @@
 <view class="page-container">
-	<view class="page-body">
-		<view class="page-section page-section-spacing">
-			<swiper class="page-swiper" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" vertical="{{false}}" interval="3000" duration="500" previous-margin="0px" next-margin="0px">
-				<block wx:for="{{swiperItems}}" wx:key="id">
-					<swiper-item>
-						<image class="swiper-item-img" src="{{item.src}}" lazy-load="{{true}}"></image>
-					</swiper-item>
-				</block>
-			</swiper>
-		</view>
-		<view class="page-section page-section-spacing">
-			<view class="page-list">
-				<view class="list-item-wrap" wx:for="{{list}}" wx:key="id">
-					<view class="list-item">
-						<image class="list-item-img" src="{{item.img}}" lazy-load="{{true}}" mode="widthFix"></image>
-						<view class=".list-item-title">
-							<text class="page-list-title">{{item.title}}</text>
-						</view>
-						<view class="list-item-section">
-							<text class="list-item-cur-price">{{item.price}}</text>
-							<text class="list-item-ori-price secondary">{{item.oriPrice}}</text>
-						</view>
-						<view class="list-item-section">
-							<text class="secondary">新品</text>
-							<text class="secondary">销量：0</text>
-						</view>
-					</view>
+	<swiper class="page-swiper" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" vertical="{{false}}" interval="3000" duration="500" previous-margin="0px" next-margin="0px">
+		<block wx:for="{{swiperItems}}" wx:key="id">
+			<swiper-item>
+				<image class="swiper-item-img" src="{{item.src}}" lazy-load="{{true}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="page-list">
+		<navigator class="list-item-wrap" wx:for="{{list}}" wx:key="id">
+			<view class="list-item">
+				<image class="list-item-img" src="{{item.img}}" lazy-load="{{true}}" mode="widthFix"></image>
+				<view class=".list-item-title">
+					<text class="page-list-title">{{item.title}}</text>
+				</view>
+				<view class="list-item-section">
+					<text class="list-item-cur-price">{{item.price}}</text>
+					<text class="list-item-ori-price secondary">{{item.oriPrice}}</text>
+				</view>
+				<view class="list-item-section">
+					<text class="secondary">新品</text>
+					<text class="secondary">销量：0</text>
 				</view>
 			</view>
-		</view>
-	</view>
-	<view class="page-foot">
-		<text>@开源项目</text>
+		</navigator>
 	</view>
 </view>

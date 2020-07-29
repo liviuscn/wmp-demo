@@ -7,19 +7,6 @@ page {
   line-height: 1.6;
 }
 
-.page-body {
-  padding-top: 0rpx;
-}
-
-.page-section {
-  width: 100%;
-  margin-bottom: 20rpx;
-}
-
-.page-section-spacing {
-  box-sizing: border-box;
-}
-
 /* 轮播图 */
 .page-swiper {
   width: 100%;
@@ -29,7 +16,6 @@ page {
 .swiper-item-img {
   width: 100%;
 }
-
 
 .page-foot {
   margin-top: 50rpx;
