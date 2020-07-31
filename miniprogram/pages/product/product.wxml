@@ -1,0 +1,31 @@
+<view class="page-container">
+	<swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+		<block wx:for="{{imgUrls}}" wx:key="id">
+			<swiper-item>
+				<image class="swiper-item-img" src="{{item.photo}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="page-list">
+		<navigator url="../productDetail/productDetail?productId={{item.id}}" class="list-item-wrap" wx:for="{{productData}}" wx:key="id">
+			<view class="list-item">
+				<image class="list-item-img" src="{{item.photo_x}}" lazy-load="{{true}}" mode="widthFix"></image>
+				<view class=".list-item-title">
+					<text class="page-list-title">{{item.name}}</text>
+				</view>
+				<view class="list-item-section">
+					<text class="list-item-cur-price">￥{{item.price}}</text>
+					<text class="list-item-ori-price secondary">￥{{item.price_yh}}</text>
+				</view>
+				<view class="list-item-section">
+					<view>
+						<text class="secondary" wx:if="{{item.is_show==1}}">新品</text>
+						<text class="secondary" wx:elif="{{item.is_hot==1}}">热销</text>
+						<text class="secondary" wx:else>推荐</text>
+					</view>
+					<text class="secondary">销量：{{item.shiyong}}</text>
+				</view>
+			</view>
+		</navigator>
+	</view>
+</view>

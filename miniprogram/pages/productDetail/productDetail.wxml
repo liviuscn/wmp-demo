@@ -1,0 +1,87 @@
+<view>
+	<swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+		<block wx:for="{{bannerItem}}" wx:key="*this">
+			<swiper-item>
+				<image src="{{item}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="title">
+		{{itemData.name}}
+	</view>
+	<view>
+		<text>￥{{itemData.price_yh}}</text>
+		<text>库存：{{itemData.num}}</text>
+	</view>
+
+	<view>品牌：{{itemData.brand}}</view>
+	<view>支付：微信支付</view>
+	<view class="tab_bar">
+		<view class="tab_bar_item active">图文详情</view>
+		<view class="divider"></view>
+		<view class="tab_bar_item">产品参数</view>
+	</view>
+
+	<swiper current="0">
+		<block>
+			<swiper-item>
+				<scroll-view style="height:5000rpx;" scroll-y="{{true}}">
+					<rich-text nodes="{{content}}"></rich-text>
+				</scroll-view>
+			</swiper-item>
+		</block>
+		<block>
+			<swiper-item>
+				<view>
+					<view>
+						商品名称：
+					</view>
+					<view>
+						商品编号：
+					</view>
+					<view>
+						分类：
+					</view>
+					<view>
+						售后：
+					</view>
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+
+
+	<view class="modal">
+		<view class="modal-mask"></view>
+		<view class="modal-wrap">
+			<view>
+			立即购买
+			</view>
+			<view class="ok_btn">
+			 立即购买
+			</view>
+		</view>
+	</view>
+
+
+	<view class="foot">
+		<view class="foot-left">
+			<view bindtap="contactService" class="foot-left-item">
+				<button style="width:100%;height:100%;padding:0" session-from="productId" open-type="contact">
+					<image class="foot-icon" src="/images/kefu.png"></image>
+					<view bindtap="addFavorites" class="dbtext">客服</view>
+				</button>
+			</view>
+			<view class="divider"></view>
+			<view bindtap="addFavorites" class="foot-left-item">
+				<image class="foot-icon" src="/images/shc.png"></image>
+				<view bindtap="addFavorites" class="dbtext">收藏</view>
+			</view>
+		</view>
+		<view class="foot-right">
+			<view class="foot-right-item bg_cheng">加入购物车</view>
+			<view class="foot-right-item bg_red">立即购买</view>
+		</view>
+	</view>
+
+</view>

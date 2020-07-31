@@ -1,5 +1,14 @@
 //app.js
 App({
+  d: {
+    hostUrl: 'http://localhost:1001/index.php/',
+    hostImg: 'http://localhost:1001',
+    hostVideo: 'http://zhubaotong-file.oss-cn-beijing.aliyuncs.com',
+    userId: 1,
+    appId:"",
+    appKey:"",
+    ceshiUrl:'http://localhost:1001/index.php/',
+  },
   onLaunch: function () {
     
     if (!wx.cloud) {
