@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    visible: false
   },
 
   /**
@@ -102,5 +102,40 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  handleOk: function () {
+    this.setData({
+      visible: false
+    })
+  },
+  //立即购买
+  buy: function () {
+    this.setData({
+      visible: true
+    })
+  },
+  addFavorites: function () {
+    wx.showToast({
+      title: '收藏成功',
+    })
+  },
+  addCart:function(){
+    // wx.showToast({
+    //   title: '加入购物车成功',
+    // })
+    // wx.showActionSheet({
+    //   itemList:["A","B","C"],
+    //   success(){
+
+    //   },
+    //   fail(){
+
+    //   }
+    // }),
+    wx.showModal({
+      title:"提示",
+      content:"adfadsfad"
+    })
   }
 })
