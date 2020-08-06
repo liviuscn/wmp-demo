@@ -1,18 +1,56 @@
-// miniprogram/pages/category/category.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    types:[],
+    typeTree:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
+    var that = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Category/index',
+      method: 'post',
+      data: {},
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        //--init data 
+        var status = res.data.status;
+        if (status == 1) {
+          var list = res.data.list;
+          var catList = res.data.catList;
+          that.setData({
+            types: list,
+            typeTree: catList,
+          });
+        } else {
+          wx.showToast({
+            title: res.data.err,
+            duration: 2000,
+          });
+        }
+        that.setData({
+          currType: 2
+        });
+        console.log(list)
 
+      },
+      error: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000,
+        });
+      },
+
+    });
   },
 
   /**
