@@ -117,7 +117,7 @@ page {
     background-color: #fff;
 }
 
-.ok_btn{
+.ok_btn {
     background-color: red;
     height: 100rpx;
     line-height: 100rpx;
@@ -126,24 +126,84 @@ page {
     color: #fff;
 }
 
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 弹框关闭按钮 */
+.modal-close-btn {
+    height: 50rpx;
+    width: 50rpx;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    transform: rotate(45deg);
+}
+.modal-close-btn::before {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    height: 30rpx;
+    width: 4rpx;
+    background-color: #000;
+}
+.modal-close-btn::after {
+    display: block;
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    height: 4rpx;
+    width: 30rpx;
+    background-color: #000;
+}
 /* 
     产品参数
 */
-.canshu{
+.canshu {
     padding: 0 20rpx;
     line-height: 1.5;
 }
 
-.detail{
+.detail {
     padding: 0 20rpx;
     line-height: 1.5;
 }
 
-.detail:nth-child(1){
+.detail:nth-child(1) {
     margin-top: 20rpx;
 }
 
-.detail:nth-child(2){
+.detail:nth-child(2) {
     display: flex;
     justify-content: space-between;
+}
+
+/* 加、减 */
+.minus,.add{
+    position: relative;
+    display: inline-block;
+    height: 40rpx;
+    width: 40rpx;
+    line-height: 40rpx;
+    color: #06c1ae;
+    border: 4rpx solid #06c1ae;
+    font-weight: 900;
+    text-align: center;
+}
+
+.btn-disabled{
+    background-color: #dcdcdc;
+    color: #999;
+    border: 0;
+}
+
+.buy-num{
+    padding: 0 50rpx;
 }
