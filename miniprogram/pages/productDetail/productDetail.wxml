@@ -6,19 +6,21 @@
 			</swiper-item>
 		</block>
 	</swiper>
-	<view class="title">
-		{{itemData.name}}
+	<view class="detail-body">
+		<view class="detail">
+			{{itemData.name}}
+		</view>
+		<view class="detail">
+			<text>￥{{itemData.price_yh}}</text>
+			<text>库存：{{itemData.num}}</text>
+		</view>
+		<view class="detail">品牌：{{itemData.brand}}</view>
+		<view class="detail">支付：微信支付</view>
 	</view>
-	<view>
-		<text>￥{{itemData.price_yh}}</text>
-		<text>库存：{{itemData.num}}</text>
-	</view>
-	<view>品牌：{{itemData.brand}}</view>
-	<view>支付：微信支付</view>
 	<view class="tab_bar">
-		<view  class="tab_bar_item  {{currentTab==0?'active':''}}" bindtap="changeTab" data-tab="0">图文详情</view>
+		<view class="tab_bar_item  {{currentTab==0?'active':''}}" bindtap="changeTab" data-tab="0">图文详情</view>
 		<view class="divider"></view>
-		<view  class="tab_bar_item  {{currentTab==1?'active':''}}" bindtap="changeTab" data-tab="1">产品参数</view>
+		<view class="tab_bar_item  {{currentTab==1?'active':''}}" bindtap="changeTab" data-tab="1">产品参数</view>
 	</view>
 	<swiper current="{{currentTab}}" bindchange="bindchange">
 		<block>
@@ -30,53 +32,23 @@
 		</block>
 		<block>
 			<swiper-item>
-				<view>
-					<view>
-						商品名称：
+				<view class="canshu-body">
+					<view class="canshu">
+						商品名称：{{itemData.name}}
 					</view>
-					<view>
-						商品编号：
+					<view class="canshu">
+						商品编号：{{itemData.pro_number}}
 					</view>
-					<view>
-						分类：
+					<view class="canshu">
+						分类：{{itemData.cat_name}}
 					</view>
-					<view>
-						售后：
+					<view class="canshu">
+						售后：签收之日48小时无条件退货
 					</view>
 				</view>
 			</swiper-item>
 		</block>
 	</swiper>
-	<view class="modal" wx:if="{{visible}}">
-		<view class="modal-mask" bindtap="handleModalCancle"></view>
-		<view class="modal-wrap">
-			<view>
-				<text bindtap="handleModalCancle">×</text>
-			</view>
-			<view>
-				<image class="drawer_image" src="{{itemData.photo_x}}" style="width:28%;height:200rpx"></image>
-				<view style="width: 60%;display: inline-block;">
-					<view style="font-size:26rpx;color:#ccc">库存{{itemData.num}}件</view>
-					<view style="font-size:29rpx;color:red">¥ {{itemData.price_yh}}</view>
-					<view>请选择 颜色分类</view>
-				</view>                                                                                                                                                                                          
-			</view>
-			<view>
-				<text>颜色分类</text>
-				<text>黑色</text>
-				<text>白色</text>
-			</view>
-			<view>
-				<text>购买数量</text>
-				<text>-</text>
-				<text>1</text>
-				<text>+</text>
-			</view>
-			<view class="ok_btn" bindtap="handleModalOk">
-				立即购买
-			</view>
-		</view>
-	</view>
 	<view class="foot">
 		<view class="foot-left">
 			<view class="foot-left-item">
@@ -94,6 +66,36 @@
 		<view class="foot-right">
 			<view class="foot-right-item bg_cheng" bindtap="addCart">加入购物车</view>
 			<view class="foot-right-item bg_red" bindtap="buy">立即购买</view>
+		</view>
+	</view>
+	<view class="modal" wx:if="{{visible}}">
+		<view class="modal-mask" bindtap="handleModalCancle"></view>
+		<view class="modal-wrap">
+			<view>
+				<text bindtap="handleModalCancle">×</text>
+			</view>
+			<view>
+				<image class="drawer_image" src="{{itemData.photo_x}}" style="width:28%;height:200rpx"></image>
+				<view style="width: 60%;display: inline-block;">
+					<view style="font-size:26rpx;color:#ccc">库存{{itemData.num}}件</view>
+					<view style="font-size:29rpx;color:red">¥ {{itemData.price_yh}}</view>
+					<view>请选择 颜色分类</view>
+				</view>
+			</view>
+			<view>
+				<text>颜色分类</text>
+				<text>黑色</text>
+				<text>白色</text>
+			</view>
+			<view>
+				<text>购买数量</text>
+				<text>-</text>
+				<text>1</text>
+				<text>+</text>
+			</view>
+			<view class="ok_btn" bindtap="handleModalOk">
+				立即购买
+			</view>
 		</view>
 	</view>
 </view>

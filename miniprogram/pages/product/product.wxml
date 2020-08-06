@@ -10,7 +10,7 @@
 		<navigator url="../productDetail/productDetail?productId={{item.id}}" class="list-item-wrap" wx:for="{{productData}}" wx:key="id">
 			<view class="list-item">
 				<image class="list-item-img" src="{{item.photo_x}}" lazy-load="{{true}}" mode="widthFix"></image>
-				<view class=".list-item-title">
+				<view class="list-item-title">
 					<text class="page-list-title">{{item.name}}</text>
 				</view>
 				<view class="list-item-section">

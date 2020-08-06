@@ -10,8 +10,8 @@ page {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 50rpx;
-    line-height: 50px;
+    height: 60rpx;
+    line-height: 60rpx;
     margin: 20rpx 0;
 }
 
@@ -124,4 +124,26 @@ page {
     text-align: center;
     width: 100%;
     color: #fff;
+}
+
+/* 
+    产品参数
+*/
+.canshu{
+    padding: 0 20rpx;
+    line-height: 1.5;
+}
+
+.detail{
+    padding: 0 20rpx;
+    line-height: 1.5;
+}
+
+.detail:nth-child(1){
+    margin-top: 20rpx;
+}
+
+.detail:nth-child(2){
+    display: flex;
+    justify-content: space-between;
 }

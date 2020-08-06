@@ -1,5 +1,3 @@
-
-
 page {
   background-color: #fff;
   height: 100%;
@@ -30,7 +28,6 @@ page {
 
 /* 列表项外壳 */
 .list-item-wrap {
-  display: block;
   box-sizing: border-box;
   border: solid 10rpx #fff;
   display: inline-block;
@@ -60,10 +57,12 @@ page {
   align-items: center;
   overflow: hidden;
 }
-.list-item-title{
+
+.list-item-title {
   padding: 0 20rpx;
   height: 85rpx;
 }
+
 /* 次要的文字颜色 */
 .secondary {
   color: #ccc
