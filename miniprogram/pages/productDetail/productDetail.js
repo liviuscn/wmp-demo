@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    visible: false
+    visible: false,
+    currentTab:0
   },
 
   /**
@@ -103,8 +104,18 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  handleOk: function () {
+  /**
+   * modal确定
+   */
+  handleModalOk: function () {
+    this.setData({
+      visible: false
+    })
+  },
+  /**
+   * modal取消
+   */
+  handleModalCancle: function () {
     this.setData({
       visible: false
     })
@@ -115,27 +126,29 @@ Page({
       visible: true
     })
   },
+  /**
+   * 收藏
+   */
   addFavorites: function () {
     wx.showToast({
       title: '收藏成功',
     })
   },
-  addCart:function(){
-    // wx.showToast({
-    //   title: '加入购物车成功',
-    // })
-    // wx.showActionSheet({
-    //   itemList:["A","B","C"],
-    //   success(){
-
-    //   },
-    //   fail(){
-
-    //   }
-    // }),
-    wx.showModal({
-      title:"提示",
-      content:"adfadsfad"
+  /**
+   * 加入购物车
+   */
+  addCart: function () {
+    wx.showToast({
+      title: '加入购物车成功',
     })
+  },
+  changeTab: function (e) {
+ 
+    this.setData({
+      currentTab: e.target.dataset.tab
+    })
+  },
+  bindchange:function(e){
+    this.setData({ currentTab: e.detail.current });
   }
 })

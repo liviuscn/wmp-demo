@@ -13,16 +13,14 @@
 		<text>￥{{itemData.price_yh}}</text>
 		<text>库存：{{itemData.num}}</text>
 	</view>
-
 	<view>品牌：{{itemData.brand}}</view>
 	<view>支付：微信支付</view>
 	<view class="tab_bar">
-		<view class="tab_bar_item active">图文详情</view>
+		<view  class="tab_bar_item  {{currentTab==0?'active':''}}" bindtap="changeTab" data-tab="0">图文详情</view>
 		<view class="divider"></view>
-		<view class="tab_bar_item">产品参数</view>
+		<view  class="tab_bar_item  {{currentTab==1?'active':''}}" bindtap="changeTab" data-tab="1">产品参数</view>
 	</view>
-
-	<swiper current="0">
+	<swiper current="{{currentTab}}" bindchange="bindchange">
 		<block>
 			<swiper-item>
 				<scroll-view style="height:5000rpx;" scroll-y="{{true}}">
@@ -49,13 +47,11 @@
 			</swiper-item>
 		</block>
 	</swiper>
-
-
 	<view class="modal" wx:if="{{visible}}">
-		<view class="modal-mask"></view>
+		<view class="modal-mask" bindtap="handleModalCancle"></view>
 		<view class="modal-wrap">
 			<view>
-				<text>×</text>
+				<text bindtap="handleModalCancle">×</text>
 			</view>
 			<view>
 				<image class="drawer_image" src="{{itemData.photo_x}}" style="width:28%;height:200rpx"></image>
@@ -63,7 +59,7 @@
 					<view style="font-size:26rpx;color:#ccc">库存{{itemData.num}}件</view>
 					<view style="font-size:29rpx;color:red">¥ {{itemData.price_yh}}</view>
 					<view>请选择 颜色分类</view>
-				</view>                                                                                                                                                                                                                                                                                                                                                   
+				</view>                                                                                                                                                                                          
 			</view>
 			<view>
 				<text>颜色分类</text>
@@ -76,19 +72,17 @@
 				<text>1</text>
 				<text>+</text>
 			</view>
-			<view class="ok_btn" bindtap="handleOk">
+			<view class="ok_btn" bindtap="handleModalOk">
 				立即购买
 			</view>
 		</view>
 	</view>
-
-
 	<view class="foot">
 		<view class="foot-left">
-			<view bindtap="contactService" class="foot-left-item">
+			<view class="foot-left-item">
 				<button style="width:100%;height:100%;padding:0" session-from="productId" open-type="contact">
 					<image class="foot-icon" src="/images/kefu.png"></image>
-					<view bindtap="addFavorites" class="dbtext">客服</view>
+					<view class="dbtext">客服</view>
 				</button>
 			</view>
 			<view class="divider"></view>
@@ -102,5 +96,4 @@
 			<view class="foot-right-item bg_red" bindtap="buy">立即购买</view>
 		</view>
 	</view>
-
 </view>
